@@ -12,6 +12,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { FormsModule }   from '@angular/forms';
+import {ApiService} from './api.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {JitCompiler} from '@angular/compiler';
+import { JitCompilerFactory } from '@angular/platform-browser-dynamic';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +25,9 @@ import { FormsModule }   from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     MatToolbarModule,
     MatDialogModule,
@@ -28,13 +35,16 @@ import { FormsModule }   from '@angular/forms';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
+    HttpClient,
     RouterModule.forRoot([
     {
       path: "register", component: RegisterComponent
     }
   ])
   ],
-  providers: [],
+  providers:{ [ApiService],[
+    { provide: JitCompiler, useClass: JitCompilerFactory }
+]}, 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

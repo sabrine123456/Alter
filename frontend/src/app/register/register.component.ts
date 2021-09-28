@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 
 @Component({
@@ -8,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apiService : ApiService) { }
 
   ngOnInit(): void {
   }
 
-  registerUser(user: any){
-    console.log(user);
+  registerUser(user : any){
+   this.apiService.registerUser(user);
   }
 }
