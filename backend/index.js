@@ -10,11 +10,12 @@ var db = mongoose.connect('mongodb://localhost:27017/meanAuthAngular', function(
     console.log('connect has been added');
 });
 
-app.set('port', process.env.prot || 3000);
+app.set('port', process.env.prot || 3001);
 app.use(bodyParser.json());
 app.get('/', (req,res) => {
-     res.send('hi');
+
  })
+
  app.get('/register', (req,res) => {
      console.log(req.body);
   var firstname= req.body.firstname;
@@ -27,9 +28,8 @@ app.get('/', (req,res) => {
   user.lastname=lastname;
   user.email=email;
   user.password=password;
-     res.send('hhello');
-
 })
+
 app.listen(app.get('port'), function(err,response){
     console.log('serveur running ',app.get('port'));
 })
