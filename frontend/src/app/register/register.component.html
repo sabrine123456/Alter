@@ -3,14 +3,12 @@
         Ajouter nouveau utilisateur
     </mat-card-title>
     <mat-card-content>
-        <form id="formData" #userData="ngForm"  (ngSubmit)="registerUser(userData.value)">
-           
-                <input matInput placeholder="firstname" type="text" ngModel [ngModelOptions]="{standalone: true}"><br>
-                <input matInput placeholder="lastname" type="text" ngModel [ngModelOptions]="{standalone: true}"><br>
-                <input matInput placeholder="email" type="email" ngModel [ngModelOptions]="{standalone: true}"><br>
-                <input matInput placeholder="password" type="password" ngModel [ngModelOptions]="{standalone: true}"><br>
+        <form id="formData" #user="ngForm"  (ngSubmit)="registerUser(user.value)">
+                <input matInput placeholder="firstname" type="text" ngModel name="firstname"><br>
+                <input matInput placeholder="lastname" type="text" ngModel name="lastname"><br>
+                <input matInput placeholder="email" type="email" ngModel name="email"><br>
+                <input matInput placeholder="password" type="password" ngModel name="password"><br>
                 <input type="submit" value="Register" mat-button>
-           
             </form>
     </mat-card-content>
 </mat-card>
