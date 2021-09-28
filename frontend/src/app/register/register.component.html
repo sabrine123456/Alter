@@ -1,1 +1,16 @@
-<p>register works!</p>
+<mat-card>
+    <mat-card-title>
+        Ajouter nouveau utilisateur
+    </mat-card-title>
+    <mat-card-content>
+        <form id="formData" #userData="ngForm"  (ngSubmit)="registerUser(userData.value)">
+           
+                <input matInput placeholder="firstname" type="text" ngModel [ngModelOptions]="{standalone: true}"><br>
+                <input matInput placeholder="lastname" type="text" ngModel [ngModelOptions]="{standalone: true}"><br>
+                <input matInput placeholder="email" type="email" ngModel [ngModelOptions]="{standalone: true}"><br>
+                <input matInput placeholder="password" type="password" ngModel [ngModelOptions]="{standalone: true}"><br>
+                <input type="submit" value="Register" mat-button>
+           
+            </form>
+    </mat-card-content>
+</mat-card>
