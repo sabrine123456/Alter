@@ -1,15 +1,16 @@
-import express from 'express';
-import  mongoose from 'mongoose';
-import { User }  from './models/User.js';
-import bodyParser from 'body-parser';
-
+var express = require('express');
+var mongoose = require('mongoose');
+var User  = require('./models/User.js');
+var bodyParser = require('body-parser');
 var app = express();
 
+var cors = require('cors');
 var db = mongoose.connect('mongodb://localhost:27017/meanAuthAngular', function(err,response){
     if(err) console.log("there is error mongodb");
     console.log('connect has been added');
 });
-
+app.use(cors());
+ 
 app.set('port', process.env.prot || 3000);
 app.use(bodyParser.json());
 app.get('/', (req,res) => {

@@ -17,6 +17,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {JitCompiler} from '@angular/compiler';
 import { JitCompilerFactory } from '@angular/platform-browser-dynamic';
+import {COMPILER_OPTIONS} from '@angular/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,16 +37,13 @@ import { JitCompilerFactory } from '@angular/platform-browser-dynamic';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    HttpClient,
     RouterModule.forRoot([
     {
       path: "register", component: RegisterComponent
     }
   ])
   ],
-  providers:{ [ApiService],[
-    { provide: JitCompiler, useClass: JitCompilerFactory }
-]}, 
+  providers: [ApiService, { provide: JitCompiler, useClass: JitCompilerFactory,deps: [COMPILER_OPTIONS] }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
